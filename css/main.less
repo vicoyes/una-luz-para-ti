@@ -1,0 +1,955 @@
+/* =========================
+Variables
+===========================*/
+@light-blue: #1496cc;
+@very-dark-grey: #243339;
+@green: #468c20;
+@blue: #0981b3;
+@orange: #ec4d38;
+@text-color: #3b4b5b;
+@serif: 'Volkhov', serif;
+@sans-serif: 'Roboto Condensed', sans-serif;
+
+/* =========================
+Mixins
+===========================*/
+.transition(@duration:0.2s, @ease:ease-out) {
+  -webkit-transition: all @duration @ease;
+  -moz-transition: all @duration @ease;
+  -o-transition: all @duration @ease;
+  transition: all @duration @ease;
+}
+
+.text-shadow(@string: 1px 1px 1px rgba(0, 0, 0, 0.5)) {
+	text-shadow: @string;
+}
+
+.box-shadow(@string) {
+	-webkit-box-shadow: @string;
+	-moz-box-shadow:    @string;
+	box-shadow:         @string;
+}
+
+/* =========================
+Basic styles
+===========================*/
+body {
+	background: #f3f5f5 url('../img/normal/background.png') repeat left top;
+	margin: 0;
+	padding: 0;
+}
+
+*::selection {
+	background: @orange;
+	color: white;
+}
+
+a, p, h1, h2, h3, h4, h5, h6, span, blockquote, sup {
+	font-family: @serif;
+	font-size: 16px;
+	line-height: 24px;
+	font-weight: normal;
+	margin-top: 16px;
+	margin-bottom: 16px;
+	color: @text-color;
+}
+
+a {
+	color: @blue;
+	text-decoration: none;
+	.transition;
+
+	&:hover {
+		color: @orange;
+		.transition;
+	}
+}
+
+h1 {
+	font-family: @sans-serif;
+	font-size: 32px;
+	line-height: 32px;
+	color: @light-blue;
+	font-weight: bold;
+}
+
+h2 {
+	font-size: 27px;
+	line-height: 32px;
+	font-weight: bold;
+	font-style: italic;
+}
+
+h3 {
+	font-size: 20px;
+	line-height: 32px;
+	font-style: italic;
+	font-weight: bold;
+}
+
+h4 {
+	font-size: 32px;
+	line-height: 37px;
+	margin: 40px 10px;
+	text-align: center;
+}
+
+section {
+	margin-top: 48px;
+}
+
+.green {
+	color: white;
+	background-color: @green;
+}
+
+.blue {
+	color: white;
+	background-color: @blue;
+}
+
+.black {
+	color: white;
+	background-color: @very-dark-grey;
+}
+
+em {
+	color: @light-blue;
+}
+
+/* =========================
+Header
+===========================*/
+header {
+	width: 100%;
+	height: 120px;
+	background: @very-dark-grey url(../img/normal/background-arrow-bottom.png) repeat-x left bottom;
+	color: white;
+	border-top: 9px solid @light-blue;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2) {
+	header {
+		background-image: url('../img/getina/background-arrow-bottom.png');
+		background-size: 11px 6px;
+	}
+}
+
+.logo {
+	display: block;
+	float: left;
+	margin: 38px 0 32px 0;
+	padding: 0;
+	text-indent: -9999px;
+	background: transparent url(../img/normal/logo.png) no-repeat left top;
+	width: 148px;
+	height: 33px;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2) {
+	.logo {
+		background-image: url(../img/retina/logo.png);
+		background-size: 148px 33px;
+	}
+}
+
+nav {
+	display: block;
+	float: right;
+
+	ul {
+		margin: 45px 0 0 0;
+
+		li {
+			list-style-type: none;
+			display: block;
+			float: left;
+			margin: 0;
+			padding: 0 10px;
+
+			a {
+				display: block;
+				font-size: 20px;
+				font-weight: bold;
+				font-family: @sans-serif;
+				color: white;
+				margin: 0;
+			}
+		}
+	}
+}
+
+/* =========================
+Book section
+===========================*/
+.book-image {
+	float: left;
+	margin-right: 32px;
+}
+
+.small-text {
+	font-family: @sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 16px;
+	display: block;
+	margin-top: -16px;
+
+	span {
+		color: @orange;
+	}
+}
+
+.button {
+	padding: 10px 32px;
+	margin-right: 20px;
+	margin-top: 0;
+	color: white;
+	font-family: @sans-serif;
+	border-radius: 5px;
+	font-size: 18px;
+	font-weight: bold;
+	display: inline-block;
+
+	&:hover {
+		color: white;
+		background-color: @orange;
+	}
+
+	sup {
+		font-family: @sans-serif;
+		color: white;
+		font-size: 14px;
+		top: -4px;
+	}
+}
+
+/* =========================
+Quotes
+===========================*/
+.quote {
+	height: 128px;
+	width: 100%;
+	background: #e8e8e8 url('../img/normal/background-quote.png') repeat-x left top;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2) {
+	.quote {
+		background-image: url('../img/retina/background-quote.png');
+		background-size: 11px 128px;
+	}
+}
+
+blockquote {
+	text-align: center;
+	display: table-cell;
+	height: 128px;
+	vertical-align: middle;
+	width: 940px;
+
+	cite {
+		margin-top: -15px;
+		display: block;
+	}
+}
+
+/* =========================
+Features / ripped paper
+===========================*/
+.ripped-paper {
+	background: transparent url('../img/normal/background-ripped-paper.png') no-repeat 20px bottom;
+	padding-bottom: 50px;
+	margin-bottom: 15px;
+}
+
+.row:nth-child(2) {
+	.ripped-paper {
+		background-image: url('../img/normal/background-ripped-paper2.png');
+	}
+}
+
+h4 em {
+	font-weight: bold;
+	color: @light-blue;
+}
+
+
+/* =========================
+Book preview
+===========================*/
+.book-preview {
+	margin-top: 10px;
+}
+
+.chapter {
+	max-width: 280px;
+	text-align: center;
+
+	&:nth-child(2) {
+		margin: 0 30px 20px 50px;
+	}
+
+	h5 {
+		font-size: 18px;
+		color: @light-blue;
+		line-height: 18px;
+		margin-bottom: 0;
+		font-weight: bold;
+	}
+
+	h6 {
+		margin-top: 5px;
+		font-size: 18px;
+		font-weight: bold;
+	}
+
+	p {
+		font-style: italic;
+	}
+
+	.frame {
+		border: 10px solid #e6e6e6;
+		position: relative;
+		.transition;
+
+		&:hover {
+			border-color: @orange;
+			.transition;
+		}
+
+		&:after {
+			content: '';
+			background: transparent url('../img/normal/preview-badge.png') no-repeat right top;
+			position: absolute;
+			width: 107px;
+			height: 107px;
+			top: -10px;
+			right: -10px;
+		}
+	}
+}
+
+/* =========================
+Download sample
+===========================*/
+.download-sample {
+	background: transparent url('../img/normal/background-sample.png') no-repeat left top;
+	width: 90%;
+	height: 82px;
+	padding: 25px 5%;
+	margin-top: 16px;
+
+	.button {
+		float: right;
+		margin: -65px 0 0 0;
+	}
+}
+
+/* =========================
+Reviews
+===========================*/
+.open-book {
+	margin-top: 32px;
+	background: transparent url('../img/normal/open-book.png') no-repeat left top;
+	width: 940px;
+	height: 654px;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2) {
+	.open-book {
+		background-image: url('../img/retina/open-book.png');
+		background-size: 940px 650px;
+	}
+}
+
+.book-pages {
+	.b-page {
+		margin-top: 14px !important;
+	}
+
+	ul {
+		padding: 0;
+		margin: 50px 35px;
+
+		li {
+			list-style-image: url('../img/normal/bullet-quote.png');
+			list-style-position: inside;
+			margin: 0 0 20px 0;
+			padding: 0;
+
+			blockquote {
+				text-indent: 8px;
+				text-align: left;
+				font-style: italic;
+				margin: 0 0 5px 0;
+				display: block;
+				width: 100%;
+				height: 100%;
+			}
+
+			cite {
+				font-family: sans-serif;
+				font-style: normal;
+				font-weight: 300;
+				font-size: 14px;
+				margin-bottom: 35px;
+				display: block;
+			}
+		}
+	}
+}
+
+/* =========================
+Pricing tables
+===========================*/
+.table-header {
+	text-align: center;
+	padding: 20px 0;
+	margin-top: 16px;
+
+	&.green {
+		background: darken(@green, 10%) url('../img/normal/table-green.png') repeat-x left top;
+	}
+
+	&.blue {
+		background: darken(@blue, 10%) url('../img/normal/table-blue.png') repeat-x left top;
+	}
+
+	&.black {
+		background: darken(@very-dark-grey, 10%) url('../img/normal/table-black.png') repeat-x left top;
+	}
+
+	p {
+		color: #ffffff;
+		margin: 0;
+		font-family: @sans-serif;
+		font-weight: 300;
+		font-size: 32px;
+		line-height: 32px;
+		.text-shadow;
+	}
+
+	span {
+		color: #ffffff;
+		margin: 0;
+		font-size: 14px;
+		font-style: italic;
+		.text-shadow;
+
+
+		&:before {
+			content: '— ';
+		}
+
+		&:after {
+			content: ' —';
+		}
+	}
+}
+
+.table-price {
+	text-align: center;
+	background-image: url(../img/normal/background-table-arrow-top.png);
+	background-repeat: repeat-x;
+	background-position: left bottom;
+	border: 1px solid darken(@green, 2%);
+	border-bottom: none;
+
+	&.blue {
+		border-color: darken(@blue, 2%);
+	}
+
+	&.black {
+		border-color: darken(@very-dark-grey, 2%);
+	}
+
+	p {
+		color: #ffffff;
+		font-weight: bold;
+		font-style: italic;
+		font-size: 64px;
+		line-height: 64px;
+		margin: 0;
+		padding: 20px 0;
+		.text-shadow;
+
+		&:before {
+			content: '$';
+			font-weight: normal;
+			font-size: 32px;
+			font-style: italic;
+			margin: 0;
+			padding: 0;
+			line-height: 32px;
+		}
+	}
+
+	sup {
+		color: #ffffff;
+		font-weight: bold;
+		font-style: italic;
+		font-size: 32px;
+		line-height: 32px;
+		top: -22px;
+		.text-shadow;
+	}
+}
+
+.table-body {
+	background: transparent url('..//img/normal/background-table.png') repeat left top;
+
+	ul {
+		padding: 15px;
+		margin: 0;
+		border-right: 1px solid #e3e3e3;
+		border-left: 1px solid #e3e3e3;
+
+		li {
+			text-align: center;
+			list-style-type: none;
+			font-family: @serif;
+			font-size: 16px;
+			font-style: italic;
+			font-weight: normal;
+			line-height: 48px;
+			border-bottom: 1px solid #cfcfcf;
+
+			&:last-child {
+				border-bottom: none;
+			}
+
+			i {
+				margin-right: 10px;
+				margin-top: 2px;
+			}
+
+			em {
+				color: @text-color;
+				font-weight: bold;
+			}
+		}
+	}
+}
+
+.table-button {
+	a {
+		font-family: @sans-serif;
+		text-transform: uppercase;
+		color: white;
+		font-size: 20px;
+		line-height: 20px;
+		display: block;
+		padding: 22px 0 15px 0;
+		margin: 0;
+		text-align: center;
+		background-image: url(../img/normal/background-table-arrow-bottom.png);
+		background-repeat: repeat-x;
+		background-position: left top;
+		border: 1px solid darken(@green, 2%);
+		border-top: none;
+
+		&:hover {
+			background-color: @orange;
+			border-color: darken(@orange, 2%);
+		}
+	}
+
+	&.blue {
+		a {
+			border-color: darken(@blue, 2%);
+
+			&:hover {
+				border-color: darken(@orange, 2%);
+			}
+		}
+	}
+
+	&.black {
+		a {
+			border-color: darken(@very-dark-grey, 2%);
+
+			&:hover {
+				border-color: darken(@orange, 2%);
+			}
+		}
+	}
+}
+
+
+footer {
+	background: @very-dark-grey url('../img/normal/background-arrow-top.png') repeat-x left top;
+	margin-top: 64px;
+	border-bottom: 32px solid @blue;
+	padding-top: 48px;
+	padding-bottom: 16px;
+	color: #ffffff;
+
+	h2,h3,h4,h5,h6,p,span,em {
+		color: #ffffff;
+	}
+
+	img {
+		margin: 0 auto;
+		display: block;
+		margin-bottom: 16px;
+	}
+
+	ul {
+		padding: 24px 0 0 0;
+
+		li {
+			list-style-type: none;
+			margin-right: 20px;
+			display: block;
+			float: left;
+			margin-bottom: 24px;
+
+			a {
+				padding: 15px;
+				display: block;
+				border-radius: 30px;
+				margin: 0;
+				background-color: @blue;
+
+				&:hover {
+					background-color: @orange;
+				}
+
+				img {
+					margin: 0;
+					padding: 0;
+				}
+			}
+		}
+	}
+
+	.go-top {
+		position: fixed;
+		bottom: 2em;
+		right: 2em;
+		color: white;
+		background-color: @very-dark-grey;
+		padding: 10px;
+		display: none;
+		z-index: 9999;
+
+		&:hover {
+			background-color: @orange;
+		}
+	}
+}
+
+/* =========================
+Tablets
+===========================*/
+@media (min-width: 768px) and (max-width: 979px) { 
+	section {
+		margin-top: 32px;
+	}
+
+	nav ul li {
+		padding: 0 8px;
+
+		a {
+			font-size: 18px;
+		}
+	}
+
+	.ripped-paper {
+		h4 {
+			margin: 30px 0 0 0;
+		}
+
+		img {
+			margin-top: 30px;
+		}
+	}
+
+	.chapter {
+		max-width: 280px;
+		text-align: center;
+
+		&:nth-child(2) {
+			margin: 0 0 20px 20px;
+		}
+
+		.frame {
+			&:after {
+				background-size: 80%;
+			}
+		}
+	}
+
+	.download-sample {
+		background-size: 100%;
+		height: 100%;
+
+		h3 {
+			margin-top: 4px;
+			margin-bottom: 10px;
+			width: 60%;
+			line-height: 24px;
+		}
+
+		.small-text {
+			display: none;
+		}
+
+		.button {
+			margin-top: -56px;
+		}
+	}
+
+	.open-book {
+		background: none;
+		width: 100%;
+		height: 100%;
+	}
+
+	.mobile-book-page {
+		ul {
+			padding: 0;
+			margin: 50px 35px;
+
+			li {
+				list-style-image: url('../img/normal/bullet-quote.png');
+				list-style-position: inside;
+				margin: 0 0 20px 0;
+				padding: 0;
+
+				blockquote {
+					text-indent: 8px;
+					text-align: left;
+					font-style: italic;
+					margin: 0 0 5px 0;
+					display: block;
+					width: 100%;
+					height: 100%;
+				}
+
+				cite {
+					font-family: sans-serif;
+					font-style: normal;
+					font-weight: 300;
+					font-size: 14px;
+					margin-bottom: 35px;
+					display: block;
+				}
+			}
+		}
+	}
+}
+
+/* =========================
+Phones
+===========================*/
+@media (max-width: 767px) { 
+	header {
+		border-top-width: 5px;
+		height: auto;
+	}
+
+	section {
+		margin-top: 24px !important;
+	}
+
+	.container {
+			margin: 0 10px;
+	}
+
+	.logo {
+		margin-top: 25px;
+	}
+
+	.mobile-nav-btn {
+		padding: 15px;
+		border: 1px solid #41535a;
+		border-radius: 5px; 
+		display: block;
+		margin-top: 17px;
+		background-color: @blue;
+		width: 16px;
+		height: 16px;
+		float: right;
+	}
+ 
+	nav {
+		float: none;
+	}
+
+	.mobile-nav {
+		display: none;
+		width: 100%;
+
+		ul {
+			padding: 0;
+			margin-top: 0;
+
+			li {
+				float: none;
+				clear: both;
+				margin-bottom: 5px;
+				padding: 0;
+
+				&:last-child {
+					margin-bottom: 25px;
+				}
+
+				a {
+					width: 94%;
+					padding: 10px 3%;
+					background-color: @blue;
+					border-radius: 5px;
+					text-align: center;
+
+					&:hover {
+						color: white;
+						background-color: @orange;
+					}
+				}
+			}
+		}
+	}
+
+	.book-image {
+		display: block;
+		margin: 0 auto;
+		float: none;
+	}
+
+	.button {
+		display: block;
+		margin-right: 0;
+		text-align: center;
+		margin-top: 5px;
+		margin-bottom: 0;
+	}
+
+	.small-text {
+		margin-top: 0;
+	}
+
+	.ripped-paper {
+		background-position: left bottom;
+
+		img {
+			display: block;
+			margin: 0 auto;
+			margin-top: 0;
+		}
+
+		.pull-right {
+			float: left;
+		}
+
+		h4 {
+			margin: 0;
+		}
+
+		p {
+			text-align: center;
+		}
+	}
+
+	.book-preview {
+		margin-top: -20px !important;
+	}
+
+	.chapter {
+		max-width: 280px;
+		text-align: center;
+		margin: 0 auto;
+
+		&:nth-child(2) {
+			margin: 0 auto;
+		}
+	}
+
+	.download-sample {
+		background: none;
+		height: 100%;
+		width: 100%;
+		padding: 0;
+
+		h3 {
+			text-align: center;
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+
+		.small-text {
+			text-align: center;
+		}
+
+		.button {
+			display: block;
+			margin: 0;
+			float: none;
+		}
+	}
+
+	.open-book {
+		background: none;
+		width: 100%;
+		height: 100%;
+	}
+
+	.mobile-book-page {
+		ul {
+			padding: 0;
+			margin: 24px 10px;
+
+			li {
+				list-style-image: url('../img/normal/bullet-quote.png');
+				list-style-position: inside;
+				margin: 0 0 20px 0;
+				padding: 0;
+
+				blockquote {
+					text-indent: 8px;
+					text-align: left;
+					font-style: italic;
+					margin: 0 0 5px 0;
+					display: block;
+					width: 100%;
+					height: 100%;
+				}
+
+				cite {
+					font-family: sans-serif;
+					font-style: normal;
+					font-weight: 300;
+					font-size: 14px;
+					margin-bottom: 35px;
+					display: block;
+				}
+			}
+		}
+	}
+
+	footer {
+		ul {
+			padding-top: 24px;
+
+			li {
+				margin-right: 5px;
+				margin-bottom: 24px;
+
+				a {
+					padding: 10px;
+				}
+			}
+		}
+
+		.go-top {
+			right: 0;
+			bottom: 0;
+			margin-top: 0;
+			margin-bottom: 0;
+			width: 100%;
+			text-align: center;
+			font-size: 14px;
+			padding: 8px;
+		}
+	}
+}

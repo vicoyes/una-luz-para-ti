@@ -1,0 +1,18 @@
+.button, footer ul li a {
+  behavior: url(css/pie/PIE.htc);
+  position: relative;
+}
+
+h1, h2, h3, h4,h5, h6 {
+  font-weight: normal;
+}
+
+.book-pages ul li blockquote {
+  margin-top: -24px;
+  text-indent: 26px;
+}
+
+.table-price p sup {
+  top: -29px;
+  left: 9px;
+}
